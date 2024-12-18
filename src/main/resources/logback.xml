@@ -9,8 +9,24 @@
             </pattern>
         </encoder>
     </appender>
+    <appender name="FILEOUT" class="ch.qos.logback.core.FileAppender">
+
+        <filter class="org.example.logging.CosmosDiagnosticsLoggingThrottler" />
+
+        <file>src/main/resources/tests.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+        <encoder>
+            <pattern>
+                %-4relative [%thread] %-5level %logger -%kvp -%msg%n
+            </pattern>
+        </encoder>
+    </appender>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILEOUT" />
     </root>
 </configuration>

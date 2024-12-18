@@ -7,7 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CosmosDiagnosticsLoggingThrottler extends Filter<ILoggingEvent> {
 
-    private final static int COUNT_THRESHOLD = 10;
+    // log 5 diagnostics every 60s
+    private final static int COUNT_THRESHOLD = 5;
     private final static long LOG_INTERVAL = 60_000;
 
     private final AtomicInteger count = new AtomicInteger(0);
