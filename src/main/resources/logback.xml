@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+        <filter class="org.example.logging.CosmosDiagnosticsLoggingThrottler" />
+
+        <encoder>
+            <pattern>
+                %-4relative [%thread] %-5level %logger -%kvp -%msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
